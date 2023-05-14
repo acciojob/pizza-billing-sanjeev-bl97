@@ -73,11 +73,16 @@ public class Pizza {
 
 
 
-        bill = "Base Price Of The Pizza: " +this.base + "\n" +
-                "Extra Cheese Added: " +this.cheese + "\n" +
-                "Extra Toppings Added: " +this.toppings + "\n" +
-                "Paperbag Added: "+this.paperbag + "\n" +
-                "Total Price: "+this.price + "\n";
+        bill = "Base Price Of The Pizza: " +this.base + "\n";
+
+               if(isCheese)
+                   bill += "Extra Cheese Added: " +this.cheese + "\n";
+               if(isToppings)
+                   bill += "Extra Toppings Added: " +this.toppings + "\n" ;
+               if(isPaperbag)
+                   bill += "Paperbag Added: "+this.paperbag + "\n";
+
+               bill += "Total Price: "+this.price + "\n";
 
         return this.bill;
     }
