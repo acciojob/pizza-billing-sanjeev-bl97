@@ -8,19 +8,24 @@ public class Pizza {
     private int cheese;
     private int toppings;
     private int paperbag;
-    private int total;
+    private int base;
 
 
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
-        if(this.isVeg)
+        if(this.isVeg){
+            base = 300;
             this.price = 300;
+        }
         else
+        {
+            base = 400;
             this.price = 400;
+        }
         cheese = 0;
         toppings = 0;
         paperbag = 0;
-        total = 0;
+
 
     }
 
@@ -30,31 +35,37 @@ public class Pizza {
 
     public void addExtraCheese(){
         cheese = 80;
+        price += 80;
     }
 
     public void addExtraToppings(){
-        if(this.isVeg == true)
+        if(this.isVeg == true) {
             toppings = 70;
-        else
+            price += 70;
+        }
+        else {
             toppings = 120;
+            price += 120;
+        }
 
     }
 
     public void addTakeaway(){
         paperbag = 20;
+        price += 20;
     }
 
     public String getBill(){
 
 
-        total = price + toppings + cheese + paperbag;
 
 
-        bill = "Base Price Of The Pizza: " +this.price + "\n" +
+
+        bill = "Base Price Of The Pizza: " +this.base + "\n" +
                 "Extra Cheese Added: " +this.cheese + "\n" +
                 "Extra Toppings Added: " +this.toppings + "\n" +
                 "Paperbag Added: "+this.paperbag + "\n" +
-                "Total Price: "+this.total;
+                "Total Price: "+this.price + "\n";
 
         return this.bill;
     }
