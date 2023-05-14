@@ -3,12 +3,16 @@ package com.driver;
 public class Pizza {
 
     private int price;
-    private Boolean isVeg;
+    private boolean isVeg;
     private String bill;
     private int cheese;
     private int toppings;
     private int paperbag;
     private int base;
+    private boolean isCheese;
+    private boolean isToppings;
+    private boolean isPaperbag;
+
 
 
     public Pizza(Boolean isVeg){
@@ -34,25 +38,33 @@ public class Pizza {
     }
 
     public void addExtraCheese(){
-        cheese = 80;
-        price += 80;
+        if(!isCheese) {
+            isCheese = true;
+            cheese = 80;
+            price += 80;
+        }
     }
 
     public void addExtraToppings(){
-        if(this.isVeg == true) {
-            toppings = 70;
-            price += 70;
-        }
-        else {
-            toppings = 120;
-            price += 120;
-        }
+       if(!isToppings) {
+           isToppings = true;
 
+           if (this.isVeg == true) {
+               toppings = 70;
+               price += 70;
+           } else {
+               toppings = 120;
+               price += 120;
+           }
+       }
     }
 
     public void addTakeaway(){
-        paperbag = 20;
-        price += 20;
+        if(!isPaperbag) {
+            isPaperbag = true;
+            paperbag = 20;
+            price += 20;
+        }
     }
 
     public String getBill(){
